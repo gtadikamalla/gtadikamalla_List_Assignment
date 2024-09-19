@@ -3,7 +3,7 @@ import data
 import functions
 def show_main_menu():
   while True:
-    print("Solomon diner") #edit to show your name
+    print("Gangadhar's diner") #edit to show your name
     print("__________")
     print('N for a new order')
     print('X for close orders and print the check')
@@ -13,6 +13,7 @@ def show_main_menu():
       break
     elif user_menu_choice in 'Xx':
       print('This option prints the list of items ordered, extended price, total, Taxes, and Grand total ')
+      close_order()
     elif user_menu_choice in 'Nn':
       print('New order')
       make_order(user_menu_choice.upper())  #calls a function for adding to the orders

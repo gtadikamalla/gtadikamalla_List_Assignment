@@ -20,6 +20,10 @@ def get_item_number():
     print('Drinks', [d.replace('\u200b','') for d in data.menu_items if d[0] == 'D'])
     print('Appetizers', [d.replace('\u200b','') for d in data.menu_items if d[0] == 'A'])
     #write code for displaying the other dishes also
+    print('Salads', [d.replace('\u200b','') for d in data.menu_items if d[0]=='S'])
+    print('Entrees', [d.replace('\u200b','') for d in data.menu_items if d[0]=='E'])
+    print('Desserts', [d.replace('\u200b','') for d in data.menu_items if d[0]=='T'])
+
     order_item = input('Enter dish number and quantity: ')
     if order_item.split()[0] in data.all_items:
       return order_item
