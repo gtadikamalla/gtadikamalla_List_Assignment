@@ -29,7 +29,7 @@ def make_order(menu_choice):
       item_name, item_price =functions.get_item_information(item_code)
     
       if item_name: 
-        order_list.append((item_code,item_name,item_price,quantity))
+        order_list.append((item_code,item_name,item_price,int(quantity)))
         print(item_name, quantity)
 
       cont= input('Do you want add any other items? (Y/N):')
@@ -57,11 +57,11 @@ def close_order(menu_choice):
 
     tax= total *0.07
     grand_total= total+tax
-    print('-----------------------------------')
+    print('--------------------')
     print(f'Subtotal: ${total:.2f}')
     print(f'Tax (7%): ${tax:.2f}')
     print(f'Grand Total: ${grand_total:.2f}')
-    print('-----------------------------------\n')
+    print('-------------------\n')
     # Reset order list
     order_list.clear()
 
