@@ -17,12 +17,14 @@ def display_items():
 
 def get_item_number():
   while True:
+    print('------------------------------------------')
     print('Drinks', [d.replace('\u200b','') for d in data.menu_items if d[0] == 'D'])
     print('Appetizers', [d.replace('\u200b','') for d in data.menu_items if d[0] == 'A'])
     #write code for displaying the other dishes also
     print('Salads', [d.replace('\u200b','') for d in data.menu_items if d[0]=='S'])
     print('Entrees', [d.replace('\u200b','') for d in data.menu_items if d[0]=='E'])
     print('Desserts', [d.replace('\u200b','') for d in data.menu_items if d[0]=='T'])
+    print('------------------------------------------')
 
     order_item = input('Enter dish number and quantity: ')
     order_item=order_item.upper()

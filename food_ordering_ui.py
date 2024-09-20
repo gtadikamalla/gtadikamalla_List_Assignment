@@ -49,6 +49,7 @@ def add_remove():
   change=input('Enter your choice (Enter A or R):')
   if change in 'Rr':
       item=input('Enter dish number to remove: ')
+      item=item.upper()
       order_list=[O for O in order_list if O[0]!=item]
       print('---------------------------')
       print(f'{item} is removed',order_list)
@@ -68,7 +69,7 @@ def add_remove():
 def make_order(menu_choice):
     
     while True:
-        print('Functionality for menu choice', menu_choice)
+        print('Functionality for menu choice')
         user_selection = functions.get_item_number()
         item_code, quantity = user_selection.split()
         item_name, item_price =functions.get_item_information(item_code)
@@ -115,7 +116,7 @@ def close_order(menu_choice):
     print('-------------------\n')
     # Reset order list
     order_list.clear()
-    print('Your order list is cleaned.')
+    print('Your order is completed. Order list is cleaned.')
     print('----------------------------')
 
 
