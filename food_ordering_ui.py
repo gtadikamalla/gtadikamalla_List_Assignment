@@ -26,28 +26,38 @@ def show_main_menu():
 
 
 def change_order():
-    print('Here is your order:')
-    print('--------------------')
-    print(order_list)
-    add_remove()
+    if not order_list:
+      print('------------------------------------------')
+      print('Your order list is empty, make a new order')
+      print('------------------------------------------') 
+    else:
+      print('Here is your order:')
+      print('--------------------')
+      print(order_list)
+      add_remove()
 
 def add_remove():
   global order_list
   print('What operation required?')
   print('R for Remove Item')
   print('A for Add Item')
-  change=input('Enter your choice:')
+  change=input('Enter your choice (Enter A or R):')
   if change in 'Rr':
       item=input('Enter dish number to remove: ')
       order_list=[O for O in order_list if O[0]!=item]
+      print('---------------------------')
       print(f'{item} is removed',order_list)
-  else:
+      print('---------------------------')
+  elif change in 'Aa':
      add()
      if contin in 'yY':
             make_order(contin)
      else:
         breakpoint
-    
+  else: 
+     print('---------------------------')
+     print('Invalid input, Enter A or R')
+     print('---------------------------')  
         
 
 def make_order(menu_choice):
