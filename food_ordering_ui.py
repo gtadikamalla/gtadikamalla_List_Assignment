@@ -1,6 +1,9 @@
 #user interface to the main menu
 import data
 import functions
+
+order_list=[]
+
 def show_main_menu():
   while True:
     print("Gangadhar's diner") #edit to show your name
@@ -13,19 +16,55 @@ def show_main_menu():
       break
     elif user_menu_choice in 'Xx':
       print('This option prints the list of items ordered, extended price, total, Taxes, and Grand total ')
-      close_order()
+      close_order(user_menu_choice)
     elif user_menu_choice in 'Nn':
       print('New order')
       make_order(user_menu_choice.upper())  #calls a function for adding to the orders
 
 def make_order(menu_choice):
-  print('Functionality for menu choice ', menu_choice)
-  user_selection = functions.get_item_number()
-  item_code, quantity = user_selection.split()
-  print(functions.get_item_information(item_code))
+    while True:
+      print('Functionality for menu choice ', menu_choice)
+      user_selection = functions.get_item_number()
+      item_code, quantity = user_selection.split()
+      item_name, item_price =functions.get_item_information(item_code)
+    
+      if item_name: 
+        order_list.append((item_code,item_name,item_price,quantity))
+        print(item_name, quantity)
+
+      cont= input('Do you want add any other items? (Y/N):')
+      if cont!='y' or cont!='Y':
+        break
+
+
+
+
 
 def close_order(menu_choice):
-  print('Functionality for menu choice ', menu_choice)
+    print('Functionality for menu choice ', menu_choice)
+
+    if not order_list:
+      print('No items')
+      return
+
+    total=0
+    print('Order Details:')
+    print('--------------')
+    for item_code, item_name, quantity, item_price in order_list:
+       item_total= quantity*item_price
+       total= total + item_total
+       print(f'{quantity}x{item_name}- ${item_price}={item_total}')
+
+    tax= total *0.07
+    grand_total= total+tax
+    print('-----------------------------------')
+    print(f'Subtotal: ${total:.2f}')
+    print(f'Tax (7%): ${tax:.2f}')
+    print(f'Grand Total: ${grand_total:.2f}')
+    print('-----------------------------------\n')
+    # Reset order list
+    order_list.clear()
+
 
 
 
