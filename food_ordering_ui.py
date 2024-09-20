@@ -7,7 +7,7 @@ order_list=[]
 def show_main_menu():
   while True:
     print("Gangadhar's diner") #edit to show your name
-    print("__________")
+    print("-----------------")
     print('N for a new order')
     print('X for close orders and print the check')
     print('Q for quit')
@@ -34,7 +34,7 @@ def make_order(menu_choice):
 
       cont= input('Do you want add any other items? (Y/N):')
       if cont!='y' or cont!='Y':
-        break
+            break
 
 
 
