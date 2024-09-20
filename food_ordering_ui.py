@@ -31,10 +31,14 @@ def make_order(menu_choice):
         if item_name: 
           order_list.append((item_code,item_name,item_price,int(quantity)))
           print(item_name, quantity)
-
-        contin= input('Do you want add any other items? (Y/N):')
+        while True:
+          contin= input('Do you want add any other items? (Y/N):')
+          if contin not in 'yY' and contin not in 'nN':
+            print('Please enter valid input.')
+          else: break
         if contin!='y' and contin!='Y':
-          break
+            break
+         
 
 
 
