@@ -25,6 +25,7 @@ def get_item_number():
     print('Desserts', [d.replace('\u200b','') for d in data.menu_items if d[0]=='T'])
 
     order_item = input('Enter dish number and quantity: ')
+    order_item=order_item.upper()
     
     if len(order_item)==2:
       print('---------------------------------------')

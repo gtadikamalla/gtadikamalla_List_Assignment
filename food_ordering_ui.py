@@ -6,6 +6,7 @@ order_list=[]
 
 def show_main_menu():
   while True:
+    print("-----------------")
     print("Gangadhar's diner") #edit to show your name
     print("-----------------")
     print('N for a new order')
@@ -23,6 +24,10 @@ def show_main_menu():
       make_order(user_menu_choice.upper())  #calls a function for adding to the orders
     elif user_menu_choice in 'cC':
       change_order()
+    else:
+       print('------------------------------------------')
+       print('Invalid input, please enter valid input.')
+       print('------------------------------------------')
 
 
 def change_order():
@@ -96,7 +101,7 @@ def close_order(menu_choice):
     total=0
     print('Order Details:')
     print('--------------')
-    for item_code, item_name, quantity, item_price in order_list:
+    for item_code, item_name, item_price, quantity in order_list:
        item_total= quantity*item_price
        total= total + item_total
        print(f'{quantity}x{item_name}- ${item_price}={item_total}')
