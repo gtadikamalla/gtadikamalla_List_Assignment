@@ -9,6 +9,7 @@ def show_main_menu():
     print("Gangadhar's diner") #edit to show your name
     print("-----------------")
     print('N for a new order')
+    print('C for change order')
     print('X for close orders and print the check')
     print('Q for quit')
     user_menu_choice = input('Your choice: ')
@@ -20,6 +21,28 @@ def show_main_menu():
     elif user_menu_choice in 'Nn':
       print('New order')
       make_order(user_menu_choice.upper())  #calls a function for adding to the orders
+    elif user_menu_choice in 'cC':
+      change_order()
+
+
+def change_order():
+    print('Here is your order:')
+    print('--------------------')
+    print(order_list)
+    add_remove()
+
+def add_remove():
+  global order_list
+  print('What operation required?')
+  print('R for Remove Item')
+  print('A for Add Item')
+  change=input('Enter your choice:')
+  if change in 'Rr':
+      item=input('Enter dish number to remove: ')
+      order_list=[O for O in order_list if O[0]!=item]
+      print(f'{item} is removed',order_list)
+    
+        
 
 def make_order(menu_choice):
     while True:

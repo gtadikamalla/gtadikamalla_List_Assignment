@@ -25,8 +25,15 @@ def get_item_number():
     print('Desserts', [d.replace('\u200b','') for d in data.menu_items if d[0]=='T'])
 
     order_item = input('Enter dish number and quantity: ')
-    if order_item.split()[0] in data.all_items:
+    
+    if len(order_item)==2:
+      print('---------------------------------------')
+      print('Invalid dish number.  Please try again')
+      print('---------------------------------------')
+    elif order_item.split()[0] in data.all_items:
       return order_item
     else:
+      print('---------------------------------------')
       print('Invalid dish number.  Please try again')
+      print('---------------------------------------')
 
