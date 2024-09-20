@@ -41,10 +41,17 @@ def add_remove():
       item=input('Enter dish number to remove: ')
       order_list=[O for O in order_list if O[0]!=item]
       print(f'{item} is removed',order_list)
+  else:
+     add()
+     if contin in 'yY':
+            make_order(contin)
+     else:
+        breakpoint
     
         
 
 def make_order(menu_choice):
+    
     while True:
         print('Functionality for menu choice', menu_choice)
         user_selection = functions.get_item_number()
@@ -54,16 +61,18 @@ def make_order(menu_choice):
         if item_name: 
           order_list.append((item_code,item_name,item_price,int(quantity)))
           print(item_name, quantity)
-        while True:
-          contin= input('Do you want add any other items? (Y/N):')
-          if contin not in 'yY' and contin not in 'nN':
-            print('Please enter valid input.')
-          else: break
+        add()
         if contin!='y' and contin!='Y':
             break
          
 
-
+def add():
+   global contin 
+   while True:
+          contin= input('Do you want add any other items? (Y/N):')
+          if contin not in 'yY' and contin not in 'nN':
+            print('Please enter valid input.')
+          else: break
 
 
 
