@@ -100,7 +100,8 @@ def close_order(menu_choice):
     print('-------------------\n')
     # Reset order list
     order_list.clear()
-
+    print('Your order list is cleaned.')
+    print('----------------------------')
 
 
 
