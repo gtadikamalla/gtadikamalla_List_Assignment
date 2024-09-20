@@ -19,11 +19,11 @@ def show_main_menu():
       close_order(user_menu_choice)
     elif user_menu_choice in 'Nn':
       print('New order')
-      make_order()  #calls a function for adding to the orders
+      make_order(user_menu_choice.upper())  #calls a function for adding to the orders
 
-def make_order():
+def make_order(menu_choice):
     while True:
-        print('Functionality for choice N')
+        print('Functionality for menu choice', menu_choice)
         user_selection = functions.get_item_number()
         item_code, quantity = user_selection.split()
         item_name, item_price =functions.get_item_information(item_code)

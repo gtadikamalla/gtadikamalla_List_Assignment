@@ -16,7 +16,7 @@ def display_items():
   pass
 
 def get_item_number():
-  
+  while True:
     print('Drinks', [d.replace('\u200b','') for d in data.menu_items if d[0] == 'D'])
     print('Appetizers', [d.replace('\u200b','') for d in data.menu_items if d[0] == 'A'])
     #write code for displaying the other dishes also
